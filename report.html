@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>YouTube API — Outlier Sample Report</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#0f1115; color:#e6e6e6; margin:0; padding:32px; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  .sub { color:#9aa0a6; font-size:13px; margin-bottom:20px; }
+  .box { background:#1a1d23; border:1px solid #2a2f3a; border-radius:10px; padding:16px 18px; margin:14px 0; font-size:13px; line-height:1.55; }
+  .box b { color:#fff; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:13px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid #232833; vertical-align:top; }
+  th { color:#9aa0a6; font-weight:600; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  td.outlier { color:#ffd54a; font-weight:700; }
+  a { color:#7cb7ff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .yt { display:inline-block; background:#ff0000; color:#fff; font-weight:700; border-radius:4px; padding:1px 6px; font-size:11px; }
+  code { background:#11141a; padding:1px 5px; border-radius:4px; color:#9fe6a0; }
+  .foot { color:#9aa0a6; font-size:12px; margin-top:18px; line-height:1.6; }
+</style></head>
+<body>
+  <h1>Outlier Sample Report <span class="yt">via YouTube</span></h1>
+  <div class="sub">Keyword: <b>переезд в грузию</b> &middot; Region: RU &middot; Data fetched: 2026-05-30 00:10:11 UTC &middot; Quota used this run: ~137 units</div>
+
+  <div class="box">
+    <b>How the outlier score is computed (local calculation — NOT a YouTube metric):</b><br>
+    <code>outlier = video view count ÷ average view count of the channel's 15 most recent uploads</code><br>
+    Every value below is retrieved from the official YouTube Data API v3
+    (<code>search.list</code> → <code>videos.list</code> → <code>channels.list</code> → <code>playlistItems.list</code> → <code>videos.list</code>).
+    The "Outlier" column is a simple division of two API-sourced numbers, computed locally in Python.
+    It is <b>not provided or endorsed by YouTube</b> and is shown alongside the raw API view counts it is derived from.
+  </div>
+
+  <table>
+    <thead><tr>
+      <th>#</th><th>Video (→ YouTube)</th><th>Channel (→ YouTube)</th>
+      <th class="num">Subscribers<br><span style="font-weight:400">(YouTube API)</span></th>
+      <th class="num">Views<br><span style="font-weight:400">(YouTube API)</span></th>
+      <th class="num">Channel recent avg<br><span style="font-weight:400">(computed)</span></th>
+      <th class="num">Outlier<br><span style="font-weight:400">(computed, not YouTube)</span></th>
+    </tr></thead>
+    <tbody>
+        <tr>
+          <td>1</td>
+          <td><a href="https://www.youtube.com/watch?v=6INRkjscb-E" target="_blank">6 ПРИЧИН, по которым вам не стоит переезжать в ГРУЗИЮ (ПРАВДА)</a></td>
+          <td><a href="https://www.youtube.com/channel/UC3uOqsq3FUCN_xIFRxvgFwA" target="_blank">YouMove Релокация</a></td>
+          <td class="num">4 090</td>
+          <td class="num">122 714</td>
+          <td class="num">7 427</td>
+          <td class="num outlier">16.52×</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><a href="https://www.youtube.com/watch?v=El29aDwJaGI" target="_blank">Каково РЕАЛЬНО ЖИТЬ в Грузии. Все Плюсы и Минусы. Неудобная правда.</a></td>
+          <td><a href="https://www.youtube.com/channel/UCwKXO9zEWr08UdS1GqzHE9w" target="_blank">Алена Лойко / Эксперт по Недвижимости </a></td>
+          <td class="num">1 100</td>
+          <td class="num">49 573</td>
+          <td class="num">3 435</td>
+          <td class="num outlier">14.43×</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><a href="https://www.youtube.com/watch?v=tLqt_xzWkUA" target="_blank">Переезд в Грузию - наш опыт. Цены, быт, досуг - как мы строим новую жизнь в Тбилиси</a></td>
+          <td><a href="https://www.youtube.com/channel/UCD9zZ5MPqcKF5-_8tKmJq0A" target="_blank">Татьяна в кругосветке, а сейчас в Грузии</a></td>
+          <td class="num">5 170</td>
+          <td class="num">17 656</td>
+          <td class="num">1 236</td>
+          <td class="num outlier">14.28×</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><a href="https://www.youtube.com/watch?v=WK8b1Nh0wns" target="_blank">переезд в Грузию | мой опыт иммиграции</a></td>
+          <td><a href="https://www.youtube.com/channel/UCTvVohx7azJRZep89oQa0LQ" target="_blank">Деловая бездельница </a></td>
+          <td class="num">3 400</td>
+          <td class="num">7 160</td>
+          <td class="num">708</td>
+          <td class="num outlier">10.11×</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><a href="https://www.youtube.com/watch?v=8fefhRRcA74" target="_blank">БАТУМИ - ХУДШИЙ город для переезда или РАЙ на земле? Правда о жизни в Грузии 2026 🇬🇪</a></td>
+          <td><a href="https://www.youtube.com/channel/UCxmv7seVGZ0lxX7qyqLgLRw" target="_blank">Шо вы, бродяги</a></td>
+          <td class="num">470</td>
+          <td class="num">18 532</td>
+          <td class="num">2 511</td>
+          <td class="num outlier">7.38×</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><a href="https://www.youtube.com/watch?v=02EaMc2iEQc" target="_blank">Переезд в Грузию в 2026: ЗА и ПРОТИВ/ Стоит того?</a></td>
+          <td><a href="https://www.youtube.com/channel/UC79ndj3Bw72K8I1-Y2oYFvA" target="_blank">Александр Пеккер | Новостройки Батуми</a></td>
+          <td class="num">1 810</td>
+          <td class="num">30 130</td>
+          <td class="num">4 792</td>
+          <td class="num outlier">6.29×</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><a href="https://www.youtube.com/watch?v=txZ_lxFLW2I" target="_blank">Едете в Грузию в 2026-м? Смотрите обязательно!</a></td>
+          <td><a href="https://www.youtube.com/channel/UC-grkNCr6pVnsd4jksPP53g" target="_blank">Alexander Short</a></td>
+          <td class="num">64 900</td>
+          <td class="num">59 696</td>
+          <td class="num">18 356</td>
+          <td class="num outlier">3.25×</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><a href="https://www.youtube.com/watch?v=2g1Xq-h9aH8" target="_blank">8 причин не переезжать в Грузию</a></td>
+          <td><a href="https://www.youtube.com/channel/UC8-f1uzhFv_-AS4uok0Btyw" target="_blank">Марк Ларишин | инвестиции и релокация</a></td>
+          <td class="num">2 940</td>
+          <td class="num">9 870</td>
+          <td class="num">3 353</td>
+          <td class="num outlier">2.94×</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><a href="https://www.youtube.com/watch?v=VFzaRl2eyL0" target="_blank">Переезд в Грузию: почему  уезжаю и что дальше</a></td>
+          <td><a href="https://www.youtube.com/channel/UCfA6kwP2ri-KR_APi4bgh_A" target="_blank">Татьяна Зенева</a></td>
+          <td class="num">169 000</td>
+          <td class="num">18 244</td>
+          <td class="num">6 809</td>
+          <td class="num outlier">2.68×</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><a href="https://www.youtube.com/watch?v=GESmZ1d0W8Q" target="_blank">Переезд в Тбилиси/Отношение к русским/цены/румтур и чет там еще</a></td>
+          <td><a href="https://www.youtube.com/channel/UCFHrvgu0ym7KJ2BKFf94aow" target="_blank">Женёк</a></td>
+          <td class="num">938 000</td>
+          <td class="num">184 023</td>
+          <td class="num">169 292</td>
+          <td class="num outlier">1.09×</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><a href="https://www.youtube.com/watch?v=YaYrrMKsYi4" target="_blank">Другая Грузия. ПОРА ВАЛИТЬ в Батуми!</a></td>
+          <td><a href="https://www.youtube.com/channel/UCDaIW2zPRWhzQ9Hj7a0QP1w" target="_blank">Руслан Усачев</a></td>
+          <td class="num">2 790 000</td>
+          <td class="num">716 390</td>
+          <td class="num">889 308</td>
+          <td class="num outlier">0.81×</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><a href="https://www.youtube.com/watch?v=IhyiSg28B_0" target="_blank">Я ПЕРЕЕХАЛА В ГРУЗИЮ (я никогда до этого не была за границей АХАХАХАХА)</a></td>
+          <td><a href="https://www.youtube.com/channel/UCEWMOmLamSEKQFS4qfyv1Fw" target="_blank">скорбияк</a></td>
+          <td class="num">193 000</td>
+          <td class="num">83 061</td>
+          <td class="num">123 276</td>
+          <td class="num outlier">0.67×</td>
+        </tr></tbody>
+  </table>
+
+  <div class="foot">
+    <b>Data source:</b> YouTube Data API v3 (official). No scraping, no unofficial/undocumented endpoints.<br>
+    <b>Data retention:</b> all API data is cached locally with a fetch timestamp and deleted after a maximum of 30 calendar days.<br>
+    <b>Attribution:</b> video and channel names link to their YouTube pages. "via YouTube" is shown per the YouTube API Services Branding Guidelines.<br>
+    <b>Use:</b> personal, single-user content-research tool. Not public, not monetized.
+  </div>
+</body></html>
